@@ -14,24 +14,23 @@ const HomeScreen = () => {
   const [allJoke, setAllJoke] = useState(dataJoke);
   const [currnetJoke, setCurrentJoke] = useState([]);
 
+  //Take the random joke from dataJoke
   useEffect(() => {
     const randomJoke = Math.floor(Math.random() * allJoke.length);
     setCurrentJoke(dataJoke[randomJoke]);
   }, [allJoke.length]);
 
+  //Set cookie
   const setCookie = async data => {
     try {
       const result = await CookieManager.get('http://jokervn.com');
       const arrCookie = JSON.stringify(result?.joke?.value)
         ? [...JSON.parse(result.joke.value), data]
         : [data];
-      console.log('CookieManager.get =>', arrCookie);
       await CookieManager.set('http://jokervn.com', {
         name: 'joke',
         value: JSON.stringify(arrCookie),
         path: '/',
-      }).then(res => {
-        console.log('CookieManager.set =>', res);
       });
     } catch (error) {
       console.error('Error setting cookie:', error);
@@ -46,8 +45,6 @@ const HomeScreen = () => {
         id: 0,
         joke: ["That's all the jokes for today! Come back another day!"],
       });
-      const result = await CookieManager.get('http://jokervn.com');
-      console.log('CookieManager.get =>', result?.joke?.value);
       return;
     } else {
       const data = {
@@ -55,7 +52,7 @@ const HomeScreen = () => {
         id_user: id_user,
         isFunny: null,
       };
-      data.isFunny = vote === 'funny' ? true : false;
+      data.isFunny = vote === 'funny';
       await setCookie(data);
       const randomJoke = Math.floor(Math.random() * newJoke.length);
       setCurrentJoke(newJoke[randomJoke]);
@@ -106,13 +103,14 @@ const HomeScreen = () => {
         <View style={styles.footer}>
           <View style={styles.footer_container}>
             <Text style={styles.footer_text}>
-              This appis created as part of HLsolutions program. The materials
-              contained on this webstie are provied for general information only
+              This app is created as part of HLsolutions program. The materials
+              contained on this website are provied for general information only
               and do not constitule any form of advice. HLS assumes no
               responsibility for the accuracy of any particular statement and
               accepts no liability for any loss or damage that may arise from
               reliance on the information contained on this site.
             </Text>
+            <Text style={styles.footer_copy}>Copyright 2021 HLS</Text>
           </View>
         </View>
       </View>

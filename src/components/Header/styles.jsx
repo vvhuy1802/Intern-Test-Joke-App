@@ -31,8 +31,8 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
   },
   img_avatar: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
     borderRadius: 20,
     marginLeft: 10,
   },

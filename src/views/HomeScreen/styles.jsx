@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   banner: {
     backgroundColor: COLORS.green,
-    flex: 1.4,
+    flex: 1.5,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: COLORS.white,
-    flex: 3.85,
+    flex: 4,
   },
   content_text: {
     fontSize: 13,
@@ -35,13 +35,13 @@ export const styles = StyleSheet.create({
   },
   vote: {
     backgroundColor: COLORS.white,
-    flex: 0.9,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
   footer: {
     backgroundColor: COLORS.white,
-    flex: 1.1,
+    flex: 1.5,
     borderTopWidth: 1,
     borderTopColor: COLORS.gray_break,
   },
@@ -52,4 +52,11 @@ export const styles = StyleSheet.create({
     fontWeight: '400',
     textAlign: 'center',
   },
+  footer_copy: {
+    fontSize: 13,
+    color: COLORS.grey,
+    fontWeight: '500',
+    textAlign: 'center',
+    marginTop: 10,
+  }
 });

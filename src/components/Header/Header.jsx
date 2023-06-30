@@ -13,7 +13,7 @@ const Header = () => {
         <View style={styles.container_user}>
           <View>
             <Text style={styles.infor_title}>Handicrafted by</Text>
-            <Text style={styles.name}>Jim HLS</Text>
+            <Text style={styles.infor_name}>Jim HLS</Text>
           </View>
           <Image
             source={require('../../assets/images/avatar.jpeg')}
