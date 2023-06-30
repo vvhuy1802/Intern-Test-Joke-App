@@ -17,7 +17,7 @@ const HomeScreen = () => {
   useEffect(() => {
     const randomJoke = Math.floor(Math.random() * allJoke.length);
     setCurrentJoke(dataJoke[randomJoke]);
-  }, []);
+  }, [allJoke.length]);
 
   const setCookie = async data => {
     try {
